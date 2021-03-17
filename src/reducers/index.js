@@ -1,10 +1,12 @@
 import {
   DECREMENT_COUNTER,
-  INCREMENT_COUNTER
+  INCREMENT_COUNTER,
+  DATA_LOADED
 } from "../constants/actions-types";
 
 const initialState = {
-  counter: 0
+  counter: 0,
+  data: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -12,6 +14,12 @@ function rootReducer(state = initialState, action) {
     return {
       ...state,
       counter: action.payload
+    };
+  }
+  if (action.type === DATA_LOADED) {
+    return {
+      ...state,
+      data: action.payload
     };
   }
   return state;

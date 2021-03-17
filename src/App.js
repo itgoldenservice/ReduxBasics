@@ -1,6 +1,7 @@
 import "./styles.css";
 import CounterWithoutRedux from "./CounterWithoutRedux";
 import CounterWithRedux from "./CounterWithRedux";
+import AsyncRedux from "./AsyncRedux";
 
 export default function App() {
   return (
@@ -10,6 +11,8 @@ export default function App() {
       <hr />
       <h2>Counter with redux</h2>
       <CounterWithRedux />
+      <h2> Async Data</h2>
+      <AsyncRedux />
     </div>
   );
 }

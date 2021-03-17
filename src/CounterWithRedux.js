@@ -1,26 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { incrementCounter, decrementCounter } from "./actions/index";
 
-function mapDispatchToProps(dispatch) {
-  return {
-    increment: (counter) => dispatch(incrementCounter(counter)),
-    decrement: (counter) => dispatch(decrementCounter(counter))
-  };
-}
+const getCounter = (state) => state.counter;
 
-const mapStateToProps = (state) => {
-  return { counter: state.counter };
-};
-
-function ConnectedCounter({ counter, increment, decrement }) {
+function CounterWithRedux() {
   // Action: code that causes an update to the state when something happens
+  const counter = useSelector(getCounter);
+
+  const dispatch = useDispatch();
   const handleIncrement = () => {
-    increment(counter + 1);
+    dispatch(incrementCounter(counter + 1));
   };
 
   const handleDecrement = () => {
-    decrement(counter - 1);
+    dispatch(decrementCounter(counter - 1));
   };
 
   // View: the UI definition
@@ -32,10 +26,5 @@ function ConnectedCounter({ counter, increment, decrement }) {
     </div>
   );
 }
-
-const CounterWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ConnectedCounter);
 
 export default CounterWithRedux;
