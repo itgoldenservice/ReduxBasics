@@ -16,6 +16,26 @@
 // console.log("Via Selector", counter);
 // export default store;
 
+//MiddleWare Example
+/* import { createStore, applyMiddleware } from "redux";
+import rootReducer from "../reducers/index";
+import { print1, print2, print3, loggerMiddleware } from "../middleware";
+
+const middlewareEnhancer = applyMiddleware(
+  print1,
+  print2,
+  print3,
+  loggerMiddleware
+);
+
+// Pass enhancer as the second arg, since there's no preloadedState
+const store = createStore(rootReducer, middlewareEnhancer);
+
+export default store;
+ */
+
+//Thunk
+
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";

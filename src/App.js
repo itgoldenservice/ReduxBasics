@@ -11,6 +11,7 @@ export default function App() {
       <hr />
       <h2>Counter with redux</h2>
       <CounterWithRedux />
+      <hr />
       <h2> Async Data</h2>
       <AsyncRedux />
     </div>

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { makeAPICall } from "./actions/index";
+import { makeAPICall, makeAPICallWithThunk } from "./actions/index";
 
 const getData = (state) => state.data.splice(0, 9);
 
@@ -10,7 +10,8 @@ const AsyncRedux = () => {
   const dispatch = useDispatch();
 
   const fetchData = () => {
-    dispatch(makeAPICall());
+    //dispatch(makeAPICall());
+    dispatch(makeAPICallWithThunk());
   };
 
   // View: the UI definition
@@ -28,7 +29,7 @@ const AsyncRedux = () => {
       >
         {data &&
           data.map((item) => {
-            return <div>Title : {item.title}</div>;
+            return <div key={item.id}>Title : {item.title}</div>;
           })}
       </div>
     </>
