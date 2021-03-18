@@ -20,7 +20,6 @@ function CounterWithRedux() {
   // View: the UI definition
   return (
     <div>
-      Value: {counter}
       <button onClick={handleIncrement}>Increment</button>
       <button onClick={handleDecrement}>Decrement</button>
     </div>
